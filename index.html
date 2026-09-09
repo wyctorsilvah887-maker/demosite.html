@@ -1,0 +1,3780 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Vértice — Experiências digitais que geram negócios</title>
+
+  <meta
+    name="description"
+    content="Demo profissional de site comercial para empresas que desejam fortalecer sua presença digital e gerar novas oportunidades."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    /* =========================================================
+       DESIGN SYSTEM
+    ========================================================= */
+
+    :root {
+      --bg: #f6f6f3;
+      --surface: #ffffff;
+      --surface-2: #eeeeea;
+
+      --text: #151515;
+      --text-soft: #6f6f6b;
+      --text-muted: #999994;
+
+      --border: rgba(21, 21, 21, 0.09);
+
+      --dark: #151515;
+      --dark-soft: #202020;
+
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 30px;
+
+      --container: 1220px;
+
+      --shadow-sm:
+        0 8px 30px rgba(0, 0, 0, .05);
+
+      --shadow-lg:
+        0 30px 90px rgba(0, 0, 0, .12);
+
+      --transition:
+        300ms cubic-bezier(.2,.8,.2,1);
+    }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    .container {
+      width: min(var(--container), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 130px 0;
+    }
+
+    .section-header {
+      max-width: 780px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      margin-bottom: 20px;
+
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+
+      color: var(--text-muted);
+    }
+
+    .eyebrow::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+      background: var(--text);
+    }
+
+    .section-title {
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(42px, 5vw, 72px);
+      line-height: .98;
+
+      letter-spacing: -.065em;
+      font-weight: 800;
+    }
+
+    .section-description {
+      max-width: 650px;
+
+      margin-top: 24px;
+
+      color: var(--text-soft);
+
+      font-size: 17px;
+    }
+
+
+    /* =========================================================
+       BUTTONS
+    ========================================================= */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      min-height: 54px;
+
+      padding: 0 24px;
+
+      border-radius: 999px;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      transition:
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: #303030;
+    }
+
+    .btn-light {
+      background: #fff;
+      color: var(--dark);
+    }
+
+    .btn-light:hover {
+      transform: translateY(-3px);
+      background: #eeeeee;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      transform: translateY(-3px);
+      background: #fff;
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .site-header {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      z-index: 1000;
+
+      background:
+        rgba(246, 246, 243, .78);
+
+      backdrop-filter: blur(18px);
+
+      border-bottom:
+        1px solid rgba(0,0,0,.05);
+
+      transition:
+        background var(--transition),
+        box-shadow var(--transition);
+    }
+
+    .site-header.scrolled {
+      background:
+        rgba(246, 246, 243, .95);
+
+      box-shadow:
+        0 8px 30px rgba(0,0,0,.04);
+    }
+
+    .nav {
+      height: 82px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 21px;
+      font-weight: 800;
+
+      letter-spacing: -.06em;
+    }
+
+    .brand-mark {
+      position: relative;
+
+      width: 12px;
+      height: 12px;
+
+      border-radius: 50%;
+
+      background: var(--dark);
+    }
+
+    .brand-mark::after {
+      content: "";
+
+      position: absolute;
+
+      width: 5px;
+      height: 5px;
+
+      top: -4px;
+      right: -4px;
+
+      border-radius: 50%;
+
+      background: #888;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+
+      color: #656561;
+
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      position: relative;
+      transition: color var(--transition);
+    }
+
+    .nav-links a::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      bottom: -7px;
+
+      width: 100%;
+      height: 1px;
+
+      background: var(--dark);
+
+      transform: scaleX(0);
+      transform-origin: right;
+
+      transition: transform var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--dark);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-cta .btn {
+      min-height: 44px;
+      padding-inline: 18px;
+
+      font-size: 13px;
+    }
+
+    .menu-toggle {
+      display: none;
+
+      width: 44px;
+      height: 44px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 50%;
+
+      background: #fff;
+
+      font-size: 19px;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+
+      padding:
+        150px 0
+        100px;
+    }
+
+    .hero-grid {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.02fr)
+        minmax(420px, .98fr);
+
+      gap: 80px;
+
+      align-items: center;
+    }
+
+    .hero-title {
+      max-width: 800px;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size:
+        clamp(58px, 7vw, 104px);
+
+      line-height: .91;
+
+      letter-spacing: -.085em;
+
+      font-weight: 800;
+    }
+
+    .hero-title .muted {
+      color: #969691;
+    }
+
+    .hero-description {
+      max-width: 590px;
+
+      margin-top: 30px;
+
+      color: var(--text-soft);
+
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      margin-top: 36px;
+
+      flex-wrap: wrap;
+    }
+
+    .hero-proof {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      margin-top: 30px;
+
+      color: var(--text-muted);
+
+      font-size: 12px;
+    }
+
+    .proof-dots {
+      display: flex;
+    }
+
+    .proof-dots span {
+      width: 29px;
+      height: 29px;
+
+      margin-left: -7px;
+
+      border:
+        2px solid var(--bg);
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #d8d8d4,
+          #8c8c87
+        );
+    }
+
+    .proof-dots span:first-child {
+      margin-left: 0;
+    }
+
+    .hero-media {
+      position: relative;
+    }
+
+    .hero-image {
+      position: relative;
+
+      height: 650px;
+
+      overflow: hidden;
+
+      border-radius: 34px;
+
+      background: #ddd;
+    }
+
+    .hero-image::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0,0,0,.05),
+          rgba(0,0,0,.28)
+        );
+    }
+
+    .hero-image img {
+      height: 100%;
+      object-fit: cover;
+
+      transition:
+        transform 1.2s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .hero-media:hover .hero-image img {
+      transform: scale(1.035);
+    }
+
+    .hero-floating {
+      position: absolute;
+
+      left: -38px;
+      bottom: 32px;
+
+      width: 280px;
+
+      padding: 23px;
+
+      border-radius: 21px;
+
+      background:
+        rgba(255,255,255,.92);
+
+      backdrop-filter:
+        blur(20px);
+
+      box-shadow:
+        var(--shadow-lg);
+
+      z-index: 2;
+    }
+
+    .floating-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      color: #888;
+
+      font-size: 10px;
+      font-weight: 700;
+
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      color: #4d4d4d;
+    }
+
+    .status::before {
+      content: "";
+
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+
+      background: #555;
+    }
+
+    .floating-number {
+      margin-top: 15px;
+
+      font-family: "Manrope";
+
+      font-size: 40px;
+      line-height: 1;
+
+      letter-spacing: -.07em;
+      font-weight: 800;
+    }
+
+    .floating-description {
+      margin-top: 8px;
+
+      color: #777;
+
+      font-size: 12px;
+    }
+
+
+    /* =========================================================
+       CLIENT STRIP
+    ========================================================= */
+
+    .client-strip {
+      padding: 34px 0;
+
+      border-top:
+        1px solid var(--border);
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .client-strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 35px;
+    }
+
+    .client-label {
+      color: #888;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      text-transform: uppercase;
+      letter-spacing: .13em;
+    }
+
+    .client-logos {
+      display: flex;
+      align-items: center;
+      gap: 45px;
+
+      color: #aaa;
+
+      font-family: "Manrope";
+
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+
+    /* =========================================================
+       SERVICES
+    ========================================================= */
+
+    .services-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+
+      gap: 40px;
+
+      margin-bottom: 65px;
+    }
+
+    .services-head .section-description {
+      margin: 0;
+    }
+
+    .services-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .service-card {
+      min-height: 340px;
+
+      display: flex;
+      flex-direction: column;
+
+      padding: 34px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: var(--radius-md);
+
+      background: var(--surface);
+
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+
+      box-shadow:
+        var(--shadow-sm);
+    }
+
+    .service-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .service-number {
+      color: #aaa;
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .service-icon {
+      width: 49px;
+      height: 49px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 15px;
+
+      background: var(--surface-2);
+
+      font-size: 20px;
+    }
+
+    .service-content {
+      margin-top: auto;
+    }
+
+    .service-card h3 {
+      font-family: "Manrope";
+
+      font-size: 25px;
+
+      letter-spacing: -.045em;
+    }
+
+    .service-card p {
+      margin-top: 10px;
+
+      color: var(--text-soft);
+
+      font-size: 14px;
+    }
+
+    .service-link {
+      display: inline-flex;
+
+      margin-top: 22px;
+
+      color: #333;
+
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+
+    /* =========================================================
+       DARK STATEMENT
+    ========================================================= */
+
+    .dark-section {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .dark-section .eyebrow {
+      color: #8d8d89;
+    }
+
+    .dark-section .eyebrow::before {
+      background: #fff;
+    }
+
+    .dark-section .section-description {
+      color: #888;
+    }
+
+    .statement {
+      display: grid;
+
+      grid-template-columns:
+        1.1fr .9fr;
+
+      gap: 90px;
+
+      align-items: end;
+    }
+
+    .statement-title {
+      font-family: "Manrope";
+
+      font-size:
+        clamp(46px, 6vw, 82px);
+
+      line-height: .96;
+
+      letter-spacing: -.075em;
+
+      font-weight: 800;
+    }
+
+    .statement-side {
+      padding-bottom: 5px;
+    }
+
+    .statement-side p {
+      max-width: 440px;
+
+      color: #999;
+
+      font-size: 16px;
+    }
+
+    .statement-side .btn {
+      margin-top: 28px;
+    }
+
+
+    /* =========================================================
+       METRICS
+    ========================================================= */
+
+    .metrics {
+      margin-top: 85px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      border-top:
+        1px solid #303030;
+    }
+
+    .metric {
+      padding:
+        30px 30px 10px 0;
+
+      border-right:
+        1px solid #303030;
+    }
+
+    .metric:not(:first-child) {
+      padding-left: 30px;
+    }
+
+    .metric:last-child {
+      border-right: 0;
+    }
+
+    .metric strong {
+      font-family: "Manrope";
+
+      font-size:
+        clamp(38px, 4vw, 58px);
+
+      line-height: 1;
+
+      letter-spacing: -.07em;
+    }
+
+    .metric p {
+      margin-top: 9px;
+
+      color: #888;
+
+      font-size: 13px;
+    }
+
+
+    /* =========================================================
+       CASES
+    ========================================================= */
+
+    .cases-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(12, 1fr);
+
+      gap: 20px;
+
+      margin-top: 65px;
+    }
+
+    .case {
+      position: relative;
+
+      min-height: 520px;
+
+      overflow: hidden;
+
+      border-radius: 28px;
+
+      cursor: pointer;
+    }
+
+    .case:nth-child(1) {
+      grid-column: span 7;
+    }
+
+    .case:nth-child(2) {
+      grid-column: span 5;
+    }
+
+    .case:nth-child(3) {
+      grid-column: span 5;
+    }
+
+    .case:nth-child(4) {
+      grid-column: span 7;
+    }
+
+    .case img {
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform .8s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .case:hover img {
+      transform: scale(1.06);
+    }
+
+    .case::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(0,0,0,.72),
+          transparent 65%
+        );
+    }
+
+    .case-info {
+      position: absolute;
+
+      z-index: 2;
+
+      left: 30px;
+      right: 30px;
+      bottom: 30px;
+
+      color: #fff;
+    }
+
+    .case-category {
+      font-size: 10px;
+
+      text-transform: uppercase;
+      letter-spacing: .14em;
+
+      color: #ccc;
+    }
+
+    .case-title {
+      margin-top: 5px;
+
+      font-family: "Manrope";
+
+      font-size: 31px;
+
+      letter-spacing: -.045em;
+    }
+
+    .case-arrow {
+      position: absolute;
+
+      right: 30px;
+      bottom: 30px;
+
+      z-index: 3;
+
+      width: 48px;
+      height: 48px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,.14);
+
+      backdrop-filter: blur(10px);
+
+      color: #fff;
+    }
+
+
+    /* =========================================================
+       PROCESS
+    ========================================================= */
+
+    .process-section {
+      background: #ecece8;
+    }
+
+    .process-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 24px;
+
+      margin-top: 65px;
+    }
+
+    .process-card {
+      border-top:
+        1px solid #c9c9c4;
+
+      padding-top: 25px;
+    }
+
+    .process-number {
+      color: #999;
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .process-card h3 {
+      margin-top: 60px;
+
+      font-family: "Manrope";
+
+      font-size: 22px;
+
+      letter-spacing: -.035em;
+    }
+
+    .process-card p {
+      margin-top: 10px;
+
+      color: #777;
+
+      font-size: 14px;
+    }
+
+
+    /* =========================================================
+       TESTIMONIALS
+    ========================================================= */
+
+    .testimonials-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+
+      margin-top: 65px;
+    }
+
+    .testimonial {
+      padding: 32px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 23px;
+
+      background: #fff;
+    }
+
+    .testimonial-rating {
+      font-size: 12px;
+
+      letter-spacing: 4px;
+    }
+
+    .testimonial blockquote {
+      margin:
+        28px 0 34px;
+
+      font-family: "Manrope";
+
+      font-size: 20px;
+
+      line-height: 1.32;
+
+      letter-spacing: -.035em;
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+    }
+
+    .person-avatar {
+      width: 44px;
+      height: 44px;
+
+      flex-shrink: 0;
+
+      overflow: hidden;
+
+      border-radius: 50%;
+    }
+
+    .person-avatar img {
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    .person-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .person-role {
+      margin-top: 1px;
+
+      color: #999;
+
+      font-size: 11px;
+    }
+
+
+    /* =========================================================
+       PRICING
+    ========================================================= */
+
+    .pricing-section {
+      background: #eeeeea;
+    }
+
+    .pricing-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+
+      margin-top: 65px;
+    }
+
+    .pricing-card {
+      position: relative;
+
+      padding: 36px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 26px;
+
+      background: #fff;
+    }
+
+    .pricing-card.featured {
+      background: var(--dark);
+      color: #fff;
+
+      transform: translateY(-10px);
+    }
+
+    .popular {
+      position: absolute;
+
+      top: 20px;
+      right: 20px;
+
+      padding: 7px 11px;
+
+      border-radius: 999px;
+
+      background: #fff;
+
+      color: #222;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .pricing-card h3 {
+      font-family: "Manrope";
+
+      font-size: 24px;
+
+      letter-spacing: -.045em;
+    }
+
+    .pricing-description {
+      margin-top: 8px;
+
+      color: #888;
+
+      font-size: 13px;
+    }
+
+    .pricing-card.featured .pricing-description {
+      color: #999;
+    }
+
+    .price {
+      margin:
+        38px 0 30px;
+
+      font-family: "Manrope";
+
+      font-size: 46px;
+
+      line-height: 1;
+
+      letter-spacing: -.07em;
+      font-weight: 800;
+    }
+
+    .price small {
+      color: #999;
+
+      font-family: "DM Sans";
+
+      font-size: 12px;
+
+      letter-spacing: 0;
+      font-weight: 500;
+    }
+
+    .pricing-features {
+      list-style: none;
+
+      display: grid;
+
+      gap: 13px;
+
+      margin-bottom: 32px;
+    }
+
+    .pricing-features li {
+      display: flex;
+      gap: 9px;
+
+      color: #666;
+
+      font-size: 13px;
+    }
+
+    .pricing-card.featured
+    .pricing-features li {
+      color: #c5c5c5;
+    }
+
+    .pricing-features li::before {
+      content: "✓";
+
+      font-weight: 800;
+    }
+
+    .pricing-card .btn {
+      width: 100%;
+    }
+
+
+    /* =========================================================
+       FAQ
+    ========================================================= */
+
+    .faq-container {
+      max-width: 880px;
+
+      margin-top: 65px;
+    }
+
+    .faq-item {
+      border-top:
+        1px solid var(--border);
+    }
+
+    .faq-button {
+      width: 100%;
+
+      padding: 26px 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border: 0;
+
+      background: transparent;
+
+      text-align: left;
+
+      color: var(--text);
+
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .faq-icon {
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      flex-shrink: 0;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 50%;
+
+      transition:
+        transform var(--transition);
+    }
+
+    .faq-answer {
+      max-height: 0;
+
+      overflow: hidden;
+
+      color: var(--text-soft);
+
+      font-size: 14px;
+
+      transition:
+        max-height .4s ease;
+    }
+
+    .faq-answer-inner {
+      padding:
+        0 50px 25px 0;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 250px;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+
+    /* =========================================================
+       FINAL CTA
+    ========================================================= */
+
+    .final-cta {
+      padding:
+        100px 0;
+    }
+
+    .final-box {
+      position: relative;
+
+      overflow: hidden;
+
+      padding:
+        85px;
+
+      border-radius: 34px;
+
+      background: var(--dark);
+
+      color: #fff;
+    }
+
+    .final-box::before {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      right: -220px;
+      top: -220px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(255,255,255,.1);
+    }
+
+    .final-box::after {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      right: -70px;
+      bottom: -180px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(255,255,255,.08);
+    }
+
+    .final-content {
+      position: relative;
+
+      z-index: 2;
+    }
+
+    .final-box .eyebrow {
+      color: #888;
+    }
+
+    .final-box .eyebrow::before {
+      background: #fff;
+    }
+
+    .final-title {
+      max-width: 800px;
+
+      font-family: "Manrope";
+
+      font-size:
+        clamp(44px, 6vw, 78px);
+
+      line-height: .95;
+
+      letter-spacing: -.075em;
+
+      font-weight: 800;
+    }
+
+    .final-description {
+      max-width: 580px;
+
+      margin-top: 22px;
+
+      color: #929292;
+
+      font-size: 16px;
+    }
+
+    .final-actions {
+      display: flex;
+      gap: 12px;
+
+      margin-top: 32px;
+
+      flex-wrap: wrap;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding:
+        75px 0 30px;
+
+      background: #101010;
+
+      color: #fff;
+    }
+
+    .footer-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.5fr repeat(3, 1fr);
+
+      gap: 50px;
+    }
+
+    .footer-brand p {
+      max-width: 330px;
+
+      margin-top: 18px;
+
+      color: #6e6e6e;
+
+      font-size: 13px;
+    }
+
+    .footer-title {
+      margin-bottom: 18px;
+
+      color: #777;
+
+      font-size: 10px;
+      font-weight: 700;
+
+      text-transform: uppercase;
+      letter-spacing: .14em;
+    }
+
+    .footer-links {
+      list-style: none;
+
+      display: grid;
+
+      gap: 10px;
+    }
+
+    .footer-links a,
+    .footer-links span {
+      color: #aaa;
+
+      font-size: 13px;
+
+      transition:
+        color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-top: 65px;
+      padding-top: 24px;
+
+      border-top:
+        1px solid #292929;
+
+      color: #555;
+
+      font-size: 11px;
+    }
+
+
+    /* =========================================================
+       MODAL
+    ========================================================= */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+
+      z-index: 3000;
+
+      display: grid;
+      place-items: center;
+
+      padding: 20px;
+
+      background:
+        rgba(0,0,0,.7);
+
+      backdrop-filter:
+        blur(8px);
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition:
+        opacity var(--transition),
+        visibility var(--transition);
+    }
+
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      position: relative;
+
+      width: min(720px, 100%);
+
+      padding: 40px;
+
+      border-radius: 26px;
+
+      background: #fff;
+
+      transform:
+        translateY(20px)
+        scale(.98);
+
+      transition:
+        transform var(--transition);
+    }
+
+    .modal.active .modal-card {
+      transform:
+        translateY(0)
+        scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+
+      top: 18px;
+      right: 18px;
+
+      width: 42px;
+      height: 42px;
+
+      border: 0;
+
+      border-radius: 50%;
+
+      background: #eee;
+
+      font-size: 20px;
+    }
+
+    .modal-card h3 {
+      font-family: "Manrope";
+
+      font-size: 34px;
+
+      letter-spacing: -.05em;
+    }
+
+    .modal-card p {
+      margin-top: 15px;
+
+      color: #777;
+    }
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+
+      transform:
+        translateY(30px);
+
+      transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1050px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        max-width: 800px;
+      }
+
+      .hero-media {
+        max-width: 700px;
+      }
+
+      .statement {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .testimonials-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+      .container {
+        width:
+          min(
+            var(--container),
+            calc(100% - 28px)
+          );
+      }
+
+      .section {
+        padding: 85px 0;
+      }
+
+      .nav {
+        height: 72px;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hero {
+        padding:
+          125px 0 70px;
+      }
+
+      .hero-title {
+        font-size: 57px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .hero-image {
+        height: 470px;
+
+        border-radius: 25px;
+      }
+
+      .hero-floating {
+        left: 14px;
+        bottom: 18px;
+
+        width: 250px;
+      }
+
+      .client-strip-inner {
+        align-items: flex-start;
+
+        flex-direction: column;
+      }
+
+      .client-logos {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .services-head {
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+
+      .services-grid,
+      .testimonials-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .statement {
+        gap: 40px;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .metric {
+        border-bottom:
+          1px solid #303030;
+      }
+
+      .metric:nth-child(3) {
+        padding-left: 0;
+      }
+
+      .cases-grid {
+        display: grid;
+
+        grid-template-columns: 1fr;
+      }
+
+      .case,
+      .case:nth-child(n) {
+        grid-column: span 1;
+
+        min-height: 400px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-card h3 {
+        margin-top: 35px;
+      }
+
+      .pricing-card.featured {
+        transform: none;
+      }
+
+      .final-box {
+        padding: 50px 25px;
+
+        border-radius: 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 10px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================================================
+       HEADER
+  ========================================================= -->
+
+  <header class="site-header" id="header">
+
+    <div class="container nav">
+
+      <a href="#" class="brand">
+        <span class="brand-mark"></span>
+        WS STUDIOS
+      </a>
+
+
+      <nav class="nav-links">
+
+        <a href="#servicos">
+          Serviços
+        </a>
+
+        <a href="#projetos">
+          Projetos
+        </a>
+
+        <a href="#processo">
+          Processo
+        </a>
+
+        <a href="#planos">
+          Planos
+        </a>
+
+        <a href="#faq">
+          FAQ
+        </a>
+
+      </nav>
+
+
+      <div class="nav-cta">
+
+        <a
+          href="#contato"
+          class="btn btn-primary"
+        >
+          Solicitar orçamento
+        </a>
+
+      </div>
+
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Abrir menu"
+      >
+        ☰
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+
+        <div class="hero-content reveal">
+
+          <div class="eyebrow">
+            Experiências digitais
+          </div>
+
+
+          <h1 class="hero-title">
+
+            Seu negócio
+            <span class="muted">
+              merece ser percebido.
+            </span>
+
+          </h1>
+
+
+          <p class="hero-description">
+
+            Criamos sites e experiências digitais
+            que transformam a presença da sua empresa
+            em uma ferramenta real de crescimento.
+
+          </p>
+
+
+          <div class="hero-actions">
+
+            <a
+              href="#contato"
+              class="btn btn-primary"
+            >
+              Começar um projeto →
+            </a>
+
+            <a
+              href="#projetos"
+              class="btn btn-outline"
+            >
+              Explorar projetos
+            </a>
+
+          </div>
+
+
+          <div class="hero-proof">
+
+            <div class="proof-dots">
+
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </div>
+
+            <span>
+              Projetos pensados para negócios reais.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-media reveal">
+
+          <div class="hero-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=90"
+              alt="Ambiente empresarial moderno"
+            />
+
+          </div>
+
+
+          <div class="hero-floating">
+
+            <div class="floating-top">
+
+              <span>
+                Performance
+              </span>
+
+              <span class="status">
+                Ativo
+              </span>
+
+            </div>
+
+
+            <div class="floating-number">
+              +42%
+            </div>
+
+
+            <p class="floating-description">
+              crescimento demonstrativo em
+              oportunidades após uma experiência
+              digital reformulada.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CLIENTS
+    ======================================================= -->
+
+    <section class="client-strip">
+
+      <div class="container client-strip-inner">
+
+        <span class="client-label">
+          Empresas que valorizam presença
+        </span>
+
+
+        <div class="client-logos">
+
+          <span>NEXA</span>
+          <span>ORBIT</span>
+          <span>MONO</span>
+          <span>ATLAS</span>
+          <span>VERT</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         SERVICES
+    ======================================================= -->
+
+    <section
+      class="section"
+      id="servicos"
+    >
+
+      <div class="container">
+
+
+        <div class="services-head reveal">
+
+          <div class="section-header">
+
+            <div class="eyebrow">
+              O que fazemos
+            </div>
+
+            <h2 class="section-title">
+              Digital não é decoração.
+              É experiência.
+            </h2>
+
+          </div>
+
+
+          <p class="section-description">
+
+            Cada elemento precisa ter uma função:
+            comunicar, gerar confiança ou conduzir
+            o visitante para o próximo passo.
+
+          </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+          <article class="service-card reveal">
+
+            <div class="service-top">
+
+              <span class="service-number">
+                01
+              </span>
+
+              <div class="service-icon">
+                ◇
+              </div>
+
+            </div>
+
+
+            <div class="service-content">
+
+              <h3>
+                Sites comerciais
+              </h3>
+
+              <p>
+                Estruturas profissionais para empresas
+                que precisam apresentar seus serviços,
+                produtos e diferenciais.
+              </p>
+
+              <a
+                href="#contato"
+                class="service-link"
+              >
+                Conhecer solução →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="service-card reveal">
+
+            <div class="service-top">
+
+              <span class="service-number">
+                02
+              </span>
+
+              <div class="service-icon">
+                ↗
+              </div>
+
+            </div>
+
+
+            <div class="service-content">
+
+              <h3>
+                Conversão
+              </h3>
+
+              <p>
+                Páginas construídas para facilitar o
+                contato, destacar ofertas e transformar
+                atenção em oportunidades.
+              </p>
+
+              <a
+                href="#contato"
+                class="service-link"
+              >
+                Conhecer solução →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="service-card reveal">
+
+            <div class="service-top">
+
+              <span class="service-number">
+                03
+              </span>
+
+              <div class="service-icon">
+                ◎
+              </div>
+
+            </div>
+
+
+            <div class="service-content">
+
+              <h3>
+                Estratégia digital
+              </h3>
+
+              <p>
+                Organizamos posicionamento, conteúdo
+                e arquitetura da informação para tornar
+                sua proposta mais clara.
+              </p>
+
+              <a
+                href="#contato"
+                class="service-link"
+              >
+                Conhecer solução →
+              </a>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         STATEMENT
+    ======================================================= -->
+
+    <section class="section dark-section">
+
+      <div class="container">
+
+
+        <div class="statement reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              Nossa visão
+            </div>
+
+            <h2 class="statement-title">
+
+              Uma boa experiência
+              faz sua empresa parecer
+              tão boa quanto ela é.
+
+            </h2>
+
+          </div>
+
+
+          <div class="statement-side">
+
+            <p>
+
+              Seu site muitas vezes é o primeiro contato
+              que um potencial cliente tem com sua empresa.
+              Nós tratamos esse momento como parte do negócio,
+              não apenas como design.
+
+            </p>
+
+
+            <a
+              href="#contato"
+              class="btn btn-light"
+            >
+              Quero melhorar minha presença →
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="metrics">
+
+
+          <div class="metric reveal">
+
+            <strong>
+              120+
+            </strong>
+
+            <p>
+              projetos demonstrativos
+            </p>
+
+          </div>
+
+
+          <div class="metric reveal">
+
+            <strong>
+              8
+            </strong>
+
+            <p>
+              anos de experiência
+            </p>
+
+          </div>
+
+
+          <div class="metric reveal">
+
+            <strong>
+              94%
+            </strong>
+
+            <p>
+              clientes recorrentes
+            </p>
+
+          </div>
+
+
+          <div class="metric reveal">
+
+            <strong>
+              18
+            </strong>
+
+            <p>
+              segmentos atendidos
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         PROJECTS
+    ======================================================= -->
+
+    <section
+      class="section"
+      id="projetos"
+    >
+
+      <div class="container">
+
+
+        <div class="section-header reveal">
+
+          <div class="eyebrow">
+            Projetos selecionados
+          </div>
+
+          <h2 class="section-title">
+            Trabalho que comunica
+            antes da primeira conversa.
+          </h2>
+
+          <p class="section-description">
+            Exemplos demonstrativos de diferentes
+            aplicações comerciais.
+          </p>
+
+        </div>
+
+
+        <div class="cases-grid">
+
+
+          <article
+            class="case reveal"
+            data-title="Casa Norte"
+            data-description="Experiência digital para uma empresa imobiliária, estruturada para apresentar imóveis, fortalecer autoridade e facilitar o contato com potenciais compradores."
+          >
+
+            <img
+              src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=90"
+              alt="Projeto imobiliário"
+            />
+
+            <div class="case-info">
+
+              <span class="case-category">
+                Imobiliário
+              </span>
+
+              <h3 class="case-title">
+                Casa Norte
+              </h3>
+
+            </div>
+
+            <div class="case-arrow">
+              ↗
+            </div>
+
+          </article>
+
+
+          <article
+            class="case reveal"
+            data-title="Ateliê Forma"
+            data-description="Presença digital para um escritório de arquitetura, valorizando portfólio, posicionamento e percepção de marca."
+          >
+
+            <img
+              src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=90"
+              alt="Projeto de arquitetura"
+            />
+
+            <div class="case-info">
+
+              <span class="case-category">
+                Arquitetura
+              </span>
+
+              <h3 class="case-title">
+                Ateliê Forma
+              </h3>
+
+            </div>
+
+            <div class="case-arrow">
+              ↗
+            </div>
+
+          </article>
+
+
+          <article
+            class="case reveal"
+            data-title="Núcleo"
+            data-description="Site comercial para uma empresa de serviços, organizando soluções, diferenciais e caminhos de conversão."
+          >
+
+            <img
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=90"
+              alt="Escritório empresarial"
+            />
+
+            <div class="case-info">
+
+              <span class="case-category">
+                Serviços
+              </span>
+
+              <h3 class="case-title">
+                Núcleo
+              </h3>
+
+            </div>
+
+            <div class="case-arrow">
+              ↗
+            </div>
+
+          </article>
+
+
+          <article
+            class="case reveal"
+            data-title="Mova Studio"
+            data-description="Experiência digital para um negócio de fitness, combinando apresentação de serviços, autoridade e geração de contatos."
+          >
+
+            <img
+              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=90"
+              alt="Academia moderna"
+            />
+
+            <div class="case-info">
+
+              <span class="case-category">
+                Fitness
+              </span>
+
+              <h3 class="case-title">
+                Mova Studio
+              </h3>
+
+            </div>
+
+            <div class="case-arrow">
+              ↗
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         PROCESS
+    ======================================================= -->
+
+    <section
+      class="section process-section"
+      id="processo"
+    >
+
+      <div class="container">
+
+
+        <div class="section-header reveal">
+
+          <div class="eyebrow">
+            Como trabalhamos
+          </div>
+
+          <h2 class="section-title">
+            Clareza antes de código.
+          </h2>
+
+          <p class="section-description">
+            Um processo simples para o cliente,
+            mas cuidadosamente estruturado nos bastidores.
+          </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+          <div class="process-card reveal">
+
+            <span class="process-number">
+              01 — DESCOBRIR
+            </span>
+
+            <h3>
+              Entendemos o negócio
+            </h3>
+
+            <p>
+              Objetivos, público, oferta, diferenciais
+              e principais obstáculos.
+            </p>
+
+          </div>
+
+
+          <div class="process-card reveal">
+
+            <span class="process-number">
+              02 — ESTRUTURAR
+            </span>
+
+            <h3>
+              Organizamos a experiência
+            </h3>
+
+            <p>
+              Criamos a arquitetura que conduz
+              o visitante pela informação.
+            </p>
+
+          </div>
+
+
+          <div class="process-card reveal">
+
+            <span class="process-number">
+              03 — CONSTRUIR
+            </span>
+
+            <h3>
+              Desenvolvemos
+            </h3>
+
+            <p>
+              Design, código, responsividade,
+              interações e otimização.
+            </p>
+
+          </div>
+
+
+          <div class="process-card reveal">
+
+            <span class="process-number">
+              04 — LANÇAR
+            </span>
+
+            <h3>
+              Colocamos no ar
+            </h3>
+
+            <p>
+              Revisamos, ajustamos e entregamos
+              o projeto pronto para utilização.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         TESTIMONIALS
+    ======================================================= -->
+
+    <section class="section">
+
+      <div class="container">
+
+
+        <div class="section-header reveal">
+
+          <div class="eyebrow">
+            Percepção de clientes
+          </div>
+
+          <h2 class="section-title">
+            Quando a experiência melhora,
+            o negócio percebe.
+          </h2>
+
+        </div>
+
+
+        <div class="testimonials-grid">
+
+
+          <article class="testimonial reveal">
+
+            <div class="testimonial-rating">
+              ★★★★★
+            </div>
+
+            <blockquote>
+              “Agora nossa presença digital transmite
+              exatamente o nível de profissionalismo
+              que entregamos presencialmente.”
+            </blockquote>
+
+            <div class="person">
+
+              <div class="person-avatar">
+
+                <img
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=85"
+                  alt=""
+                />
+
+              </div>
+
+              <div>
+
+                <div class="person-name">
+                  Marina Alves
+                </div>
+
+                <div class="person-role">
+                  Diretora — Casa Norte
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="testimonial reveal">
+
+            <div class="testimonial-rating">
+              ★★★★★
+            </div>
+
+            <blockquote>
+              “O site deixou de ser apenas um cartão
+              de visitas e passou a fazer parte
+              da nossa operação comercial.”
+            </blockquote>
+
+            <div class="person">
+
+              <div class="person-avatar">
+
+                <img
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=85"
+                  alt=""
+                />
+
+              </div>
+
+              <div>
+
+                <div class="person-name">
+                  Rafael Costa
+                </div>
+
+                <div class="person-role">
+                  Fundador — Mova Studio
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="testimonial reveal">
+
+            <div class="testimonial-rating">
+              ★★★★★
+            </div>
+
+            <blockquote>
+              “O processo foi muito mais simples
+              do que imaginávamos e o resultado
+              superou nossa expectativa.”
+            </blockquote>
+
+            <div class="person">
+
+              <div class="person-avatar">
+
+                <img
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=85"
+                  alt=""
+                />
+
+              </div>
+
+              <div>
+
+                <div class="person-name">
+                  Laura Mendes
+                </div>
+
+                <div class="person-role">
+                  Arquiteta — Ateliê Forma
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         PRICING
+    ======================================================= -->
+
+    <section
+      class="section pricing-section"
+      id="planos"
+    >
+
+      <div class="container">
+
+
+        <div class="section-header reveal">
+
+          <div class="eyebrow">
+            Investimento
+          </div>
+
+          <h2 class="section-title">
+            Escolha o nível
+            do seu projeto.
+          </h2>
+
+          <p class="section-description">
+            Valores demonstrativos para esta apresentação.
+            O orçamento final depende do escopo.
+          </p>
+
+        </div>
+
+
+        <div class="pricing-grid">
+
+
+          <article class="pricing-card reveal">
+
+            <h3>
+              Essencial
+            </h3>
+
+            <p class="pricing-description">
+              Para quem precisa estabelecer presença.
+            </p>
+
+            <div class="price">
+              R$ 790
+            </div>
+
+            <ul class="pricing-features">
+
+              <li>
+                Landing page profissional
+              </li>
+
+              <li>
+                Design responsivo
+              </li>
+
+              <li>
+                WhatsApp
+              </li>
+
+              <li>
+                Formulário de contato
+              </li>
+
+              <li>
+                Publicação
+              </li>
+
+            </ul>
+
+            <a
+              href="#contato"
+              class="btn btn-outline"
+            >
+              Solicitar projeto
+            </a>
+
+          </article>
+
+
+          <article
+            class="pricing-card
+                   featured
+                   reveal"
+          >
+
+            <span class="popular">
+              Mais escolhido
+            </span>
+
+            <h3>
+              Comercial
+            </h3>
+
+            <p class="pricing-description">
+              Para empresas que querem crescer.
+            </p>
+
+            <div class="price">
+              R$ 1.490
+            </div>
+
+            <ul class="pricing-features">
+
+              <li>
+                Site de até 8 seções
+              </li>
+
+              <li>
+                Design personalizado
+              </li>
+
+              <li>
+                Serviços e portfólio
+              </li>
+
+              <li>
+                Integração WhatsApp
+              </li>
+
+              <li>
+                Formulário de orçamento
+              </li>
+
+              <li>
+                SEO básico
+              </li>
+
+              <li>
+                Publicação
+              </li>
+
+            </ul>
+
+            <a
+              href="#contato"
+              class="btn btn-light"
+            >
+              Solicitar projeto
+            </a>
+
+          </article>
+
+
+          <article class="pricing-card reveal">
+
+            <h3>
+              Estratégico
+            </h3>
+
+            <p class="pricing-description">
+              Para projetos mais completos.
+            </p>
+
+            <div class="price">
+              R$ 2.490
+            </div>
+
+            <ul class="pricing-features">
+
+              <li>
+                Site personalizado
+              </li>
+
+              <li>
+                Catálogo ou área de produtos
+              </li>
+
+              <li>
+                Blog
+              </li>
+
+              <li>
+                Integrações
+              </li>
+
+              <li>
+                SEO avançado
+              </li>
+
+              <li>
+                Analytics
+              </li>
+
+              <li>
+                Suporte inicial
+              </li>
+
+            </ul>
+
+            <a
+              href="#contato"
+              class="btn btn-outline"
+            >
+              Solicitar projeto
+            </a>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         FAQ
+    ======================================================= -->
+
+    <section
+      class="section"
+      id="faq"
+    >
+
+      <div class="container">
+
+
+        <div class="section-header reveal">
+
+          <div class="eyebrow">
+            Perguntas frequentes
+          </div>
+
+          <h2 class="section-title">
+            Antes de começar.
+          </h2>
+
+        </div>
+
+
+        <div class="faq-container">
+
+
+          <div class="faq-item reveal">
+
+            <button class="faq-button">
+
+              <span>
+                Quanto tempo leva para criar um site?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                O prazo depende do escopo e da velocidade
+                de aprovação dos materiais. Projetos comerciais
+                médios podem ser desenvolvidos em poucos dias
+                após o recebimento de todas as informações.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item reveal">
+
+            <button class="faq-button">
+
+              <span>
+                Preciso fornecer textos e imagens?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Você pode fornecer os materiais da empresa.
+                Também podemos estruturar o conteúdo necessário
+                para que a comunicação fique mais clara.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item reveal">
+
+            <button class="faq-button">
+
+              <span>
+                O site funciona em celular?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Sim. O projeto é desenvolvido com abordagem
+                responsiva para celulares, tablets e desktops.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item reveal">
+
+            <button class="faq-button">
+
+              <span>
+                Vocês fazem alterações depois da entrega?
+              </span>
+
+              <span class="faq-icon">
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Sim. É possível contratar manutenção,
+                alterações e novas funcionalidades depois
+                da publicação do projeto.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         FINAL CTA
+    ======================================================= -->
+
+    <section
+      class="final-cta"
+      id="contato"
+    >
+
+      <div class="container">
+
+        <div class="final-box reveal">
+
+          <div class="final-content">
+
+            <div class="eyebrow">
+              Vamos conversar
+            </div>
+
+            <h2 class="final-title">
+              Seu negócio pode
+              parecer tão bom
+              quanto ele realmente é.
+            </h2>
+
+            <p class="final-description">
+
+              Conte um pouco sobre sua empresa,
+              seus objetivos e o que você gostaria
+              de melhorar.
+
+            </p>
+
+
+            <div class="final-actions">
+
+              <a
+                href="https://wa.me/5583999999999?text=Olá!%20Vi%20a%20demo%20e%20gostaria%20de%20conversar%20sobre%20um%20site."
+                target="_blank"
+                class="btn btn-light"
+              >
+                Falar pelo WhatsApp →
+              </a>
+
+              <a
+                href="mailto:contato@vertice.demo"
+                class="btn"
+                style="
+                  color:#fff;
+                  border:1px solid #333;
+                "
+              >
+                Enviar e-mail
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer>
+
+    <div class="container">
+
+
+      <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+          <a href="#" class="brand">
+            <span
+              class="brand-mark"
+              style="background:#fff;"
+            ></span>
+
+            Vértice
+          </a>
+
+          <p>
+            Experiências digitais para empresas
+            que querem transformar presença em
+            percepção e oportunidades.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Navegação
+          </div>
+
+          <ul class="footer-links">
+
+            <li>
+              <a href="#servicos">
+                Serviços
+              </a>
+            </li>
+
+            <li>
+              <a href="#projetos">
+                Projetos
+              </a>
+            </li>
+
+            <li>
+              <a href="#processo">
+                Processo
+              </a>
+            </li>
+
+            <li>
+              <a href="#planos">
+                Planos
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Empresa
+          </div>
+
+          <ul class="footer-links">
+
+            <li>
+              <a href="#">
+                Sobre
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Privacidade
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Termos
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Contato
+          </div>
+
+          <ul class="footer-links">
+
+            <li>
+              <span>
+                Campina Grande — PB
+              </span>
+            </li>
+
+            <li>
+              <a href="mailto:contato@vertice.demo">
+                contato@vertice.demo
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://wa.me/5583999999999"
+                target="_blank"
+              >
+                WhatsApp
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 Vértice. Demo comercial.
+        </span>
+
+        <span>
+          Projeto demonstrativo.
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================================================
+       PROJECT MODAL
+  ========================================================= -->
+
+  <div
+    class="modal"
+    id="projectModal"
+  >
+
+    <div class="modal-card">
+
+      <button
+        class="modal-close"
+        id="modalClose"
+      >
+        ×
+      </button>
+
+      <h3 id="modalTitle">
+        Projeto
+      </h3>
+
+      <p id="modalDescription">
+        Descrição.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================= -->
+
+  <script>
+
+    /* =========================================================
+       HEADER SCROLL
+    ========================================================= */
+
+    const header =
+      document.getElementById("header");
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        if (window.scrollY > 20) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+
+      },
+      { passive: true }
+    );
+
+
+    /* =========================================================
+       REVEAL
+    ========================================================= */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+
+    const revealObserver =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach((entry) => {
+
+            if (
+              entry.isIntersecting
+            ) {
+
+              entry.target.classList.add(
+                "visible"
+              );
+
+              revealObserver.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: .12
+        }
+      );
+
+
+    revealElements.forEach(
+      (element) => {
+
+        revealObserver.observe(element);
+
+      }
+    );
+
+
+    /* =========================================================
+       FAQ
+    ========================================================= */
+
+    const faqItems =
+      document.querySelectorAll(
+        ".faq-item"
+      );
+
+
+    faqItems.forEach(
+      (item) => {
+
+        const button =
+          item.querySelector(
+            ".faq-button"
+          );
+
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const active =
+              item.classList.contains(
+                "active"
+              );
+
+
+            faqItems.forEach(
+              (other) => {
+
+                other.classList.remove(
+                  "active"
+                );
+
+              }
+            );
+
+
+            if (!active) {
+
+              item.classList.add(
+                "active"
+              );
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       PROJECT MODAL
+    ========================================================= */
+
+    const modal =
+      document.getElementById(
+        "projectModal"
+      );
+
+    const modalClose =
+      document.getElementById(
+        "modalClose"
+      );
+
+    const modalTitle =
+      document.getElementById(
+        "modalTitle"
+      );
+
+    const modalDescription =
+      document.getElementById(
+        "modalDescription"
+      );
+
+
+    const projects =
+      document.querySelectorAll(
+        ".case"
+      );
+
+
+    projects.forEach(
+      (project) => {
+
+        project.addEventListener(
+          "click",
+          () => {
+
+            modalTitle.textContent =
+              project.dataset.title;
+
+            modalDescription.textContent =
+              project.dataset.description;
+
+            modal.classList.add(
+              "active"
+            );
+
+            document.body.classList.add(
+              "no-scroll"
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    function closeModal() {
+
+      modal.classList.remove(
+        "active"
+      );
+
+      document.body.classList.remove(
+        "no-scroll"
+      );
+
+    }
+
+
+    modalClose.addEventListener(
+      "click",
+      closeModal
+    );
+
+
+    modal.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target === modal
+        ) {
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    const menuToggle =
+      document.getElementById(
+        "menuToggle"
+      );
+
+
+    const navLinks =
+      document.querySelector(
+        ".nav-links"
+      );
+
+
+    menuToggle.addEventListener(
+      "click",
+      () => {
+
+        const isOpen =
+          navLinks.classList.contains(
+            "mobile-open"
+          );
+
+
+        if (isOpen) {
+
+          navLinks.classList.remove(
+            "mobile-open"
+          );
+
+          navLinks.removeAttribute(
+            "style"
+          );
+
+          return;
+
+        }
+
+
+        navLinks.classList.add(
+          "mobile-open"
+        );
+
+
+        navLinks.style.display =
+          "flex";
+
+        navLinks.style.position =
+          "absolute";
+
+        navLinks.style.top =
+          "72px";
+
+        navLinks.style.left =
+          "14px";
+
+        navLinks.style.right =
+          "14px";
+
+        navLinks.style.padding =
+          "22px";
+
+        navLinks.style.flexDirection =
+          "column";
+
+        navLinks.style.alignItems =
+          "flex-start";
+
+        navLinks.style.gap =
+          "20px";
+
+        navLinks.style.background =
+          "#fff";
+
+        navLinks.style.border =
+          "1px solid rgba(0,0,0,.08)";
+
+        navLinks.style.borderRadius =
+          "20px";
+
+        navLinks.style.boxShadow =
+          "0 25px 70px rgba(0,0,0,.12)";
+
+      }
+    );
+
+
+    /* =========================================================
+       MOBILE MENU CLOSE
+    ========================================================= */
+
+    navLinks
+      .querySelectorAll("a")
+      .forEach(
+        (link) => {
+
+          link.addEventListener(
+            "click",
+            () => {
+
+              if (
+                window.innerWidth <= 1050
+              ) {
+
+                navLinks.classList.remove(
+                  "mobile-open"
+                );
+
+                navLinks.removeAttribute(
+                  "style"
+                );
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =========================================================
+       IMAGE ERROR FALLBACK
+    ========================================================= */
+
+    document
+      .querySelectorAll("img")
+      .forEach(
+        (image) => {
+
+          image.addEventListener(
+            "error",
+            () => {
+
+              image.style.background =
+                "#deded9";
+
+              image.style.minHeight =
+                "200px";
+
+            }
+          );
+
+        }
+      );
+
+  </script>
+
+</body>
+</html>
