@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Sobre nós | Sua Empresa</title>
+
+  <meta
+    name="description"
+    content="Conheça nossa história, nossos valores e a forma como trabalhamos para entregar experiências e resultados de alto nível."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    /* =====================================================
+       CONFIGURAÇÕES PRINCIPAIS
+       TROQUE AS CORES AQUI PARA CADA CLIENTE
+    ====================================================== */
+
+    :root {
+      --bg: #f7f7f5;
+      --surface: #ffffff;
+      --surface-soft: #f0f0ed;
+
+      --text: #111111;
+      --text-soft: #6a6a67;
+
+      --dark: #111111;
+      --dark-soft: #1b1b1b;
+
+      --accent: #6957e8;
+      --accent-hover: #5948d7;
+
+      --border: rgba(17, 17, 17, 0.10);
+
+      --container: 1200px;
+
+      --radius-sm: 16px;
+      --radius-md: 26px;
+      --radius-lg: 36px;
+
+      --shadow:
+        0 24px 70px rgba(0, 0, 0, 0.08);
+    }
+
+
+    /* =====================================================
+       RESET
+    ====================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--container));
+      margin-inline: auto;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ====================================================== */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      z-index: 1000;
+
+      background: rgba(247, 247, 245, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid transparent;
+
+      transition: 0.3s ease;
+    }
+
+    header.scrolled {
+      border-color: var(--border);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .navbar {
+      height: 84px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #4e4e4b;
+
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 13px 22px;
+
+      color: white !important;
+      background: var(--dark);
+
+      border-radius: 100px;
+
+      transition: 0.25s ease;
+    }
+
+    .header-cta:hover {
+      transform: translateY(-2px);
+      background: var(--accent);
+    }
+
+    .menu-button {
+      display: none;
+
+      width: 44px;
+      height: 44px;
+
+      border: 1px solid var(--border);
+      border-radius: 50%;
+
+      background: white;
+
+      cursor: pointer;
+
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .menu-button span {
+      width: 18px;
+      height: 2px;
+      background: #111;
+      border-radius: 10px;
+    }
+
+
+    /* =====================================================
+       HERO
+    ====================================================== */
+
+    .hero {
+      padding-top: 175px;
+      padding-bottom: 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 80px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      margin-bottom: 28px;
+
+      font-size: 0.78rem;
+      font-weight: 700;
+
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+
+      color: var(--accent);
+    }
+
+    .eyebrow::before {
+      content: "";
+
+      width: 34px;
+      height: 1px;
+
+      background: currentColor;
+    }
+
+    .hero h1 {
+      font-family: "Manrope", sans-serif;
+
+      max-width: 780px;
+
+      font-size: clamp(3.5rem, 7vw, 7.5rem);
+      line-height: 0.94;
+
+      letter-spacing: -0.075em;
+      font-weight: 700;
+    }
+
+    .hero h1 span {
+      color: var(--text-soft);
+    }
+
+    .hero-description {
+      max-width: 500px;
+
+      font-size: 1.15rem;
+      color: var(--text-soft);
+
+      margin-bottom: 32px;
+    }
+
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+
+      font-weight: 700;
+
+      border-bottom: 1px solid var(--text);
+
+      padding-bottom: 5px;
+    }
+
+    .hero-link span {
+      transition: transform 0.25s ease;
+    }
+
+    .hero-link:hover span {
+      transform: translateX(6px);
+    }
+
+
+    /* =====================================================
+       HERO IMAGE
+    ====================================================== */
+
+    .hero-image-wrapper {
+      position: relative;
+
+      width: min(94%, var(--container));
+      margin: 0 auto 120px;
+
+      overflow: hidden;
+
+      border-radius: var(--radius-lg);
+    }
+
+    .hero-image-wrapper img {
+      height: min(680px, 70vw);
+      min-height: 420px;
+
+      object-fit: cover;
+    }
+
+    .hero-image-overlay {
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.52),
+          transparent 45%
+        );
+    }
+
+    .hero-image-text {
+      position: absolute;
+
+      left: clamp(28px, 5vw, 70px);
+      bottom: clamp(28px, 5vw, 65px);
+
+      color: white;
+    }
+
+    .hero-image-text span {
+      display: block;
+
+      margin-bottom: 8px;
+
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+
+      opacity: 0.75;
+    }
+
+    .hero-image-text strong {
+      display: block;
+
+      max-width: 630px;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(1.8rem, 3vw, 3.3rem);
+      line-height: 1.1;
+
+      letter-spacing: -0.045em;
+    }
+
+
+    /* =====================================================
+       HISTÓRIA
+    ====================================================== */
+
+    .story {
+      padding: 30px 0 140px;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+
+      gap: 100px;
+    }
+
+    .section-label {
+      font-size: 0.76rem;
+
+      font-weight: 700;
+
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+
+      color: var(--text-soft);
+    }
+
+    .story-content h2 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(2.4rem, 4.5vw, 4.8rem);
+      line-height: 1.02;
+
+      letter-spacing: -0.06em;
+
+      margin-bottom: 40px;
+    }
+
+    .story-content p {
+      max-width: 750px;
+
+      font-size: 1.12rem;
+
+      color: var(--text-soft);
+
+      margin-bottom: 23px;
+    }
+
+    .story-content p:first-of-type {
+      color: var(--text);
+
+      font-size: 1.25rem;
+    }
+
+
+    /* =====================================================
+       NÚMEROS
+    ====================================================== */
+
+    .numbers {
+      padding: 0 0 130px;
+    }
+
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .number-item {
+      padding: 45px 30px;
+
+      border-right: 1px solid var(--border);
+    }
+
+    .number-item:first-child {
+      padding-left: 0;
+    }
+
+    .number-item:last-child {
+      border-right: 0;
+    }
+
+    .number-item strong {
+      display: block;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(2.2rem, 4vw, 4rem);
+
+      letter-spacing: -0.055em;
+      line-height: 1;
+
+      margin-bottom: 13px;
+    }
+
+    .number-item span {
+      color: var(--text-soft);
+    }
+
+
+    /* =====================================================
+       MISSÃO
+    ====================================================== */
+
+    .mission {
+      padding: 130px 0;
+
+      background: var(--dark);
+      color: white;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+
+      gap: 100px;
+    }
+
+    .mission .section-label {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .mission-content h2 {
+      font-family: "Manrope", sans-serif;
+
+      max-width: 850px;
+
+      font-size: clamp(2.8rem, 5vw, 5.8rem);
+      line-height: 1;
+
+      letter-spacing: -0.065em;
+
+      margin-bottom: 46px;
+    }
+
+    .mission-content h2 span {
+      color: rgba(255, 255, 255, 0.38);
+    }
+
+    .mission-content p {
+      max-width: 650px;
+
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+
+    /* =====================================================
+       VALORES
+    ====================================================== */
+
+    .values {
+      padding: 140px 0;
+    }
+
+    .section-heading {
+      display: flex;
+
+      align-items: end;
+      justify-content: space-between;
+
+      gap: 40px;
+
+      margin-bottom: 70px;
+    }
+
+    .section-heading h2 {
+      max-width: 750px;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      line-height: 1;
+
+      letter-spacing: -0.06em;
+    }
+
+    .section-heading p {
+      max-width: 430px;
+
+      color: var(--text-soft);
+    }
+
+    .values-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+    .value-card {
+      min-height: 410px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      background: var(--surface);
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+
+      padding: 38px;
+
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-8px);
+
+      box-shadow: var(--shadow);
+    }
+
+    .value-number {
+      font-family: "Manrope", sans-serif;
+
+      font-weight: 700;
+
+      color: var(--text-soft);
+    }
+
+    .value-card h3 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: 1.7rem;
+
+      letter-spacing: -0.04em;
+
+      margin-bottom: 13px;
+    }
+
+    .value-card p {
+      color: var(--text-soft);
+    }
+
+
+    /* =====================================================
+       EXPERIÊNCIA / IMAGEM
+    ====================================================== */
+
+    .experience {
+      padding-bottom: 140px;
+    }
+
+    .experience-card {
+      overflow: hidden;
+
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+
+      background: #eaeae6;
+
+      border-radius: var(--radius-lg);
+    }
+
+    .experience-image {
+      min-height: 600px;
+    }
+
+    .experience-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .experience-content {
+      padding: clamp(50px, 7vw, 100px);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .experience-content h2 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(2.4rem, 4vw, 4.3rem);
+      line-height: 1;
+
+      letter-spacing: -0.055em;
+
+      margin-bottom: 30px;
+    }
+
+    .experience-content p {
+      color: var(--text-soft);
+
+      font-size: 1.08rem;
+
+      margin-bottom: 30px;
+    }
+
+
+    /* =====================================================
+       PROCESSO
+    ====================================================== */
+
+    .process {
+      padding: 0 0 140px;
+    }
+
+    .process-list {
+      margin-top: 65px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .process-row {
+      display: grid;
+      grid-template-columns: 0.4fr 1fr 1.3fr;
+
+      gap: 40px;
+
+      padding: 36px 0;
+
+      border-bottom: 1px solid var(--border);
+
+      transition: padding 0.3s ease;
+    }
+
+    .process-row:hover {
+      padding-left: 15px;
+    }
+
+    .process-number {
+      font-size: 0.9rem;
+
+      color: var(--text-soft);
+    }
+
+    .process-row h3 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: 1.5rem;
+
+      letter-spacing: -0.03em;
+    }
+
+    .process-row p {
+      color: var(--text-soft);
+    }
+
+
+    /* =====================================================
+       CTA
+    ====================================================== */
+
+    .cta-section {
+      padding: 0 0 50px;
+    }
+
+    .cta-box {
+      position: relative;
+
+      overflow: hidden;
+
+      min-height: 520px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 60px 30px;
+
+      background: var(--accent);
+      color: white;
+
+      border-radius: var(--radius-lg);
+    }
+
+    .cta-circle {
+      position: absolute;
+
+      width: 600px;
+      height: 600px;
+
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 50%;
+    }
+
+    .cta-circle:nth-child(2) {
+      width: 850px;
+      height: 850px;
+    }
+
+    .cta-content {
+      position: relative;
+
+      z-index: 3;
+
+      max-width: 800px;
+    }
+
+    .cta-content span {
+      display: block;
+
+      margin-bottom: 20px;
+
+      font-size: 0.8rem;
+      font-weight: 700;
+
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+
+      opacity: 0.75;
+    }
+
+    .cta-content h2 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(2.7rem, 5.5vw, 5.8rem);
+
+      line-height: 0.97;
+
+      letter-spacing: -0.065em;
+
+      margin-bottom: 35px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+
+      padding: 17px 27px;
+
+      background: white;
+      color: #111;
+
+      border-radius: 100px;
+
+      font-weight: 700;
+
+      transition: 0.25s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 15px 35px rgba(0,0,0,0.15);
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ====================================================== */
+
+    footer {
+      padding: 75px 0 35px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr repeat(3, 0.6fr);
+
+      gap: 50px;
+
+      padding-bottom: 70px;
+    }
+
+    .footer-brand {
+      max-width: 330px;
+    }
+
+    .footer-brand .logo {
+      display: inline-block;
+
+      margin-bottom: 22px;
+    }
+
+    .footer-brand p {
+      color: var(--text-soft);
+    }
+
+    .footer-column h4 {
+      margin-bottom: 22px;
+
+      font-size: 0.85rem;
+
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-column a {
+      display: block;
+
+      margin-bottom: 12px;
+
+      color: var(--text-soft);
+
+      transition: 0.2s ease;
+    }
+
+    .footer-column a:hover {
+      color: var(--text);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+
+      gap: 30px;
+
+      padding-top: 28px;
+
+      border-top: 1px solid var(--border);
+
+      font-size: 0.9rem;
+
+      color: var(--text-soft);
+    }
+
+
+    /* =====================================================
+       ANIMAÇÃO
+    ====================================================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    /* =====================================================
+       RESPONSIVO
+    ====================================================== */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        position: fixed;
+
+        top: 84px;
+        left: 4%;
+        right: 4%;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+
+        padding: 25px;
+
+        background: rgba(255, 255, 255, 0.96);
+
+        border: 1px solid var(--border);
+        border-radius: 24px;
+
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .header-cta {
+        text-align: center;
+      }
+
+      .menu-button {
+        display: flex;
+      }
+
+      .hero-grid,
+      .story-grid,
+      .mission-grid,
+      .experience-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 45px;
+      }
+
+      .story-grid,
+      .mission-grid {
+        gap: 50px;
+      }
+
+      .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .number-item {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .number-item:nth-child(2) {
+        border-right: 0;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .value-card {
+        min-height: 310px;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .experience-image {
+        min-height: 450px;
+      }
+
+      .process-row {
+        grid-template-columns: 0.25fr 0.75fr 1.2fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+
+    @media (max-width: 600px) {
+
+      .navbar {
+        height: 74px;
+      }
+
+      .nav-links {
+        top: 74px;
+      }
+
+      .hero {
+        padding-top: 135px;
+        padding-bottom: 65px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.3rem, 16vw, 5rem);
+      }
+
+      .hero-image-wrapper {
+        width: 94%;
+        margin-bottom: 90px;
+
+        border-radius: 26px;
+      }
+
+      .hero-image-wrapper img {
+        min-height: 500px;
+      }
+
+      .story,
+      .values,
+      .mission {
+        padding-top: 95px;
+        padding-bottom: 95px;
+      }
+
+      .numbers {
+        padding-bottom: 95px;
+      }
+
+      .numbers-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .number-item,
+      .number-item:first-child {
+        padding: 30px 0;
+
+        border-right: 0;
+      }
+
+      .process-row {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        padding: 28px 0;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .cta-box {
+        min-height: 480px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header id="header">
+
+    <div class="container navbar">
+
+      <!-- ALTERAR NOME DO CLIENTE -->
+      <a href="index.html" class="logo">
+        Vértice<span>.</span>
+      </a>
+
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="../index.html">
+          Início
+        </a>
+
+        <a href="sobre.html" class="active">
+          Sobre
+        </a>
+
+        <a href="../index.html#servicos">
+          Serviços
+        </a>
+
+        <a href="../index.html#projetos">
+          Projetos
+        </a>
+
+        <a href="../index.html#contato" class="header-cta">
+          Fale conosco
+        </a>
+
+      </nav>
+
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Abrir menu"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div>
+
+          <div class="eyebrow reveal">
+            Quem somos
+          </div>
+
+          <h1 class="reveal">
+            Construímos com
+            <span>propósito.</span>
+          </h1>
+
+        </div>
+
+
+        <div class="reveal">
+
+          <p class="hero-description">
+
+            Acreditamos que grandes resultados começam
+            quando estratégia, atenção aos detalhes e
+            excelência trabalham na mesma direção.
+
+          </p>
+
+          <a href="#nossa-historia" class="hero-link">
+            Conheça nossa história
+            <span>↓</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         IMAGEM PRINCIPAL
+         TROCAR PELA FOTO DO CLIENTE
+    ====================================================== -->
+
+    <section class="hero-image-wrapper reveal">
+
+      <img
+        src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85"
+        alt="Equipe trabalhando"
+      >
+
+      <div class="hero-image-overlay"></div>
+
+      <div class="hero-image-text">
+
+        <span>
+          Nossa essência
+        </span>
+
+        <strong>
+          Pessoas, ideias e execução trabalhando
+          para criar algo que realmente importa.
+        </strong>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         HISTÓRIA
+    ====================================================== -->
+
+    <section
+      class="story"
+      id="nossa-historia"
+    >
+
+      <div class="container story-grid">
+
+        <div class="section-label reveal">
+          Nossa história
+        </div>
+
+
+        <div class="story-content">
+
+          <h2 class="reveal">
+            Uma empresa construída para fazer diferente.
+          </h2>
+
+          <p class="reveal">
+
+            Nossa história começou com uma ideia simples:
+            entregar um trabalho que unisse qualidade,
+            proximidade e compromisso genuíno com cada cliente.
+
+          </p>
+
+          <p class="reveal">
+
+            Desde então, buscamos compreender profundamente
+            cada desafio antes de propor qualquer solução.
+            Não acreditamos em respostas genéricas para
+            problemas específicos.
+
+          </p>
+
+          <p class="reveal">
+
+            Cada projeto representa uma oportunidade de
+            construir relações duradouras, elevar padrões
+            e gerar valor de maneira consistente.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         NÚMEROS
+         IMPORTANTE:
+         TROCAR POR DADOS REAIS DO CLIENTE
+    ====================================================== -->
+
+    <section class="numbers">
+
+      <div class="container numbers-grid reveal">
+
+        <div class="number-item">
+
+          <strong>
+            08+
+          </strong>
+
+          <span>
+            anos de experiência*
+          </span>
+
+        </div>
+
+
+        <div class="number-item">
+
+          <strong>
+            120+
+          </strong>
+
+          <span>
+            projetos realizados*
+          </span>
+
+        </div>
+
+
+        <div class="number-item">
+
+          <strong>
+            95%
+          </strong>
+
+          <span>
+            satisfação dos clientes*
+          </span>
+
+        </div>
+
+
+        <div class="number-item">
+
+          <strong>
+            04
+          </strong>
+
+          <span>
+            áreas de atuação*
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MISSÃO
+    ====================================================== -->
+
+    <section class="mission">
+
+      <div class="container mission-grid">
+
+        <div class="section-label reveal">
+          Nossa missão
+        </div>
+
+
+        <div class="mission-content">
+
+          <h2 class="reveal">
+
+            Transformar desafios em
+            <span>experiências que geram valor.</span>
+
+          </h2>
+
+
+          <p class="reveal">
+
+            Trabalhamos para entregar soluções que façam
+            sentido para o negócio, para o cliente e para
+            as pessoas que serão impactadas por ele.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         VALORES
+    ====================================================== -->
+
+    <section class="values">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <div class="eyebrow reveal">
+              O que nos orienta
+            </div>
+
+            <h2 class="reveal">
+              Valores que aparecem no nosso trabalho.
+            </h2>
+
+          </div>
+
+
+          <p class="reveal">
+
+            Não tratamos valores como palavras decorativas.
+            Eles orientam decisões, relacionamentos e a
+            maneira como conduzimos cada projeto.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="values-grid">
+
+          <article class="value-card reveal">
+
+            <span class="value-number">
+              01
+            </span>
+
+            <div>
+
+              <h3>
+                Excelência
+              </h3>
+
+              <p>
+
+                Buscamos qualidade em cada detalhe, desde
+                o primeiro contato até a entrega final.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <article class="value-card reveal">
+
+            <span class="value-number">
+              02
+            </span>
+
+            <div>
+
+              <h3>
+                Transparência
+              </h3>
+
+              <p>
+
+                Relações sólidas são construídas com
+                comunicação clara, responsabilidade e
+                confiança.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <article class="value-card reveal">
+
+            <span class="value-number">
+              03
+            </span>
+
+            <div>
+
+              <h3>
+                Evolução
+              </h3>
+
+              <p>
+
+                Estamos sempre buscando novas maneiras
+                de aprender, melhorar e entregar mais valor.
+
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         EXPERIÊNCIA
+    ====================================================== -->
+
+    <section class="experience">
+
+      <div class="container">
+
+        <div class="experience-card reveal">
+
+          <div class="experience-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85"
+              alt="Ambiente profissional"
+            >
+
+          </div>
+
+
+          <div class="experience-content">
+
+            <div class="eyebrow">
+              Nossa forma de trabalhar
+            </div>
+
+            <h2>
+              Próximos do cliente. Exigentes com o resultado.
+            </h2>
+
+            <p>
+
+              Acreditamos que compreender o contexto é tão
+              importante quanto executar uma boa solução.
+              Por isso, cada projeto começa ouvindo,
+              analisando e identificando o que realmente
+              precisa ser feito.
+
+            </p>
+
+            <a href="#processo" class="hero-link">
+              Veja como trabalhamos
+              <span>↓</span>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PROCESSO
+    ====================================================== -->
+
+    <section
+      class="process"
+      id="processo"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <div class="eyebrow reveal">
+              Nosso processo
+            </div>
+
+            <h2 class="reveal">
+              Clareza do início ao fim.
+            </h2>
+
+          </div>
+
+
+          <p class="reveal">
+
+            Um processo estruturado reduz incertezas
+            e permite que todos saibam exatamente
+            onde estamos e para onde estamos indo.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="process-list">
+
+          <div class="process-row reveal">
+
+            <span class="process-number">
+              01
+            </span>
+
+            <h3>
+              Entendimento
+            </h3>
+
+            <p>
+
+              Começamos entendendo o negócio,
+              os objetivos e as necessidades
+              específicas do cliente.
+
+            </p>
+
+          </div>
+
+
+
+          <div class="process-row reveal">
+
+            <span class="process-number">
+              02
+            </span>
+
+            <h3>
+              Estratégia
+            </h3>
+
+            <p>
+
+              Organizamos as informações e definimos
+              o caminho mais adequado para atingir
+              o resultado esperado.
+
+            </p>
+
+          </div>
+
+
+
+          <div class="process-row reveal">
+
+            <span class="process-number">
+              03
+            </span>
+
+            <h3>
+              Execução
+            </h3>
+
+            <p>
+
+              Transformamos planejamento em entrega,
+              mantendo qualidade, comunicação
+              e atenção aos detalhes.
+
+            </p>
+
+          </div>
+
+
+
+          <div class="process-row reveal">
+
+            <span class="process-number">
+              04
+            </span>
+
+            <h3>
+              Evolução
+            </h3>
+
+            <p>
+
+              Avaliamos os resultados e identificamos
+              oportunidades para continuar melhorando.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CTA FINAL
+    ====================================================== -->
+
+    <section
+      class="cta-section"
+      id="contato"
+    >
+
+      <div class="container">
+
+        <div class="cta-box reveal">
+
+          <div class="cta-circle"></div>
+          <div class="cta-circle"></div>
+
+
+          <div class="cta-content">
+
+            <span>
+              Vamos conversar?
+            </span>
+
+            <h2>
+              Vamos construir algo relevante juntos.
+            </h2>
+
+
+            <!-- TROCAR WHATSAPP -->
+
+            <a
+              href="https://wa.me/5583999999999"
+              target="_blank"
+              class="cta-button"
+            >
+
+              Falar com nossa equipe
+
+              <span>
+                ↗
+              </span>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+
+          <a href="index.html" class="logo">
+            Vértice<span>.</span>
+          </a>
+
+          <p>
+
+            Estratégia, qualidade e proximidade
+            para transformar desafios em resultados.
+
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>
+            Empresa
+          </h4>
+
+          <a href="sobre.html">
+            Sobre
+          </a>
+
+          <a href="index.html#servicos">
+            Serviços
+          </a>
+
+          <a href="index.html#projetos">
+            Projetos
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>
+            Contato
+          </h4>
+
+          <a href="#">
+            WhatsApp
+          </a>
+
+          <a href="#">
+            Instagram
+          </a>
+
+          <a href="#">
+            E-mail
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>
+            Legal
+          </h4>
+
+          <a href="#">
+            Privacidade
+          </a>
+
+          <a href="#">
+            Termos
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 Vértice. Todos os direitos reservados.
+        </span>
+
+        <span>
+          Desenvolvido com atenção aos detalhes.
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    /* HEADER AO ROLAR */
+
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 20) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
+    });
+
+
+
+    /* MENU MOBILE */
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuButton.addEventListener("click", () => {
+
+      navLinks.classList.toggle("open");
+
+    });
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          navLinks.classList.remove("open");
+
+        });
+
+      });
+
+
+
+    /* ANIMAÇÃO DE ENTRADA */
+
+    const observer = new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+
+      {
+        threshold: 0.12
+      }
+
+    );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach(element => {
+
+        observer.observe(element);
+
+      });
+
+  </script>
+
+
+</body>
+</html>
